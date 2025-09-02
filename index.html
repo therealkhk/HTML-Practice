@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apple Sales Report 2024</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 40px;
+            background: linear-gradient(120deg, #f8fff8 0%, #e6ffe6 100%);
+        }
+        h1 {
+            color: #2e8b57;
+            text-shadow: 1px 1px 2px #cce5cc;
+            letter-spacing: 1px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 30px auto 0 auto;
+            box-shadow: 0 4px 16px rgba(46,139,87,0.08);
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #2e8b57;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px 18px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        th {
+            background-color: #eafbe7;
+            color: #2e8b57;
+        }
+        tbody tr:hover {
+            background-color: #f5fff5;
+        }
+        tfoot th {
+            background-color: #d4f5d4;
+            color: #2e8b57;
+            font-size: 1.1em;
+        }
+        .highlight {
+            background-color: #ffe066 !important;
+        }
+        .btn {
+            display: inline-block;
+            margin: 20px 0 0 0;
+            padding: 10px 22px;
+            background: #2e8b57;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(46,139,87,0.10);
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #246b47;
+        }
+    </style>
+</head>
+<body>
+    <h1>Apple Sales Report - 2024</h1>
+    <p>This report summarizes the monthly apple sales for the year 2024.</p>
+    <button class="btn" onclick="highlightMax()">Highlight Highest Month</button>
+    <table id="salesTable">
+        <caption>Monthly Apple Sales (Units)</caption>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>January</td><td>12,500</td></tr>
+            <tr><td>February</td><td>11,800</td></tr>
+            <tr><td>March</td><td>13,200</td></tr>
+            <tr><td>April</td><td>14,000</td></tr>
+            <tr><td>May</td><td>15,300</td></tr>
+            <tr><td>June</td><td>16,100</td></tr>
+            <tr><td>July</td><td>15,900</td></tr>
+            <tr><td>August</td><td>16,500</td></tr>
+            <tr><td>September</td><td>17,200</td></tr>
+            <tr><td>October</td><td>16,800</td></tr>
+            <tr><td>November</td><td>15,700</td></tr>
+            <tr><td>December</td><td>14,900</td></tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total</th>
+                <th>180,900</th>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        function highlightMax() {
+            const table = document.getElementById('salesTable');
+            const rows = table.tBodies[0].rows;
+            let max = 0, maxRow = null;
+            for (let i = 0; i < rows.length; i++) {
+                let sales = parseInt(rows[i].cells[1].textContent.replace(/,/g, ''));
+                if (sales > max) {
+                    max = sales;
+                    maxRow = rows[i];
+                }
+                rows[i].classList.remove('highlight');
+            }
+            if (maxRow) maxRow.classList.add('highlight');
+        }
+    </script>
+</body>
+</html>
