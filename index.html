@@ -66,6 +66,47 @@
         .btn:hover {
             background: #246b47;
         }
+
+        /* --- Mobile Portrait Styles --- */
+        @media only screen and (max-width: 600px) and (orientation: portrait) {
+            body {
+                margin: 10px;
+                background: linear-gradient(180deg, #fff8e6 0%, #ffe6e6 100%);
+            }
+            h1 {
+                font-size: 1.3em;
+                color: #d2691e;
+                text-shadow: none;
+                text-align: center;
+                margin-top: 16px;
+            }
+            p {
+                font-size: 1em;
+                text-align: center;
+            }
+            .btn {
+                width: 100%;
+                padding: 14px 0;
+                font-size: 1.1em;
+                margin-top: 10px;
+            }
+            table {
+                width: 100%;
+                margin: 16px 0 0 0;
+                font-size: 0.9em;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            th, td {
+                padding: 10px 6px;
+            }
+            caption {
+                font-size: 1em;
+            }
+            tfoot th {
+                font-size: 0.98em;
+            }
+        }
     </style>
 </head>
 <body>
